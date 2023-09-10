@@ -27,10 +27,6 @@ function togglePlay(){
     }
 }
 
-// event listener
-videoPlayer.addEventListener("ended", setpause);
-playBtn.addEventListener("click", togglePlay);
-videoPlayer.addEventListener("click", togglePlay);
 
 // Progress Bar ---------------------------------- //
 function displaytime(time)
@@ -41,7 +37,6 @@ function displaytime(time)
 }
 function handleprogress(){
     const percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
-    console.log(percent videoPlayer.currentTime);
     progressbar.style.width = `${percent}%`;
     console.log(percent);
     currentTime.textContent = `${displaytime(videoPlayer.currentTime)} /`;
@@ -49,8 +44,6 @@ function handleprogress(){
 
 }
 
-videoPlayer.addEventListener("timeupdte", handleprogress);
-videoPlayer.addEventListener("canplay", handleprogress);
 // Volume Controls --------------------------- //
 
 
@@ -61,4 +54,10 @@ videoPlayer.addEventListener("canplay", handleprogress);
 
 // Fullscreen ------------------------------- //
 
+// event listener
+videoPlayer.addEventListener("ended", setpause);
+playBtn.addEventListener("click", togglePlay);
+videoPlayer.addEventListener("click", togglePlay);
+videoPlayer.addEventListener("timeupdate", handleprogress);
+videoPlayer.addEventListener("canplay", handleprogress);
 

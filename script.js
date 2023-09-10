@@ -33,9 +33,13 @@ playBtn.addEventListener("click", togglePlay);
 videoPlayer.addEventListener("click", togglePlay);
 
 // Progress Bar ---------------------------------- //
+function handleprogress(){
+    const percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+    progressbar.style.width = `${percent}%`;
+}
 
-
-
+videoPlayer.addEventListener("timeupdte", handleprogress);
+videoPlayer.addEventListener("canplay", handleprogress);
 // Volume Controls --------------------------- //
 
 

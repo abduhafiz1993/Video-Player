@@ -33,9 +33,20 @@ playBtn.addEventListener("click", togglePlay);
 videoPlayer.addEventListener("click", togglePlay);
 
 // Progress Bar ---------------------------------- //
+function displaytime(time)
+{
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
 function handleprogress(){
     const percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+    console.log(percent videoPlayer.currentTime);
     progressbar.style.width = `${percent}%`;
+    console.log(percent);
+    currentTime.textContent = `${displaytime(videoPlayer.currentTime)} /`;
+    duration.textContent = `${displaytime(videoPlayer.duration)}`;
+
 }
 
 videoPlayer.addEventListener("timeupdte", handleprogress);
